@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    함수(function) : 자주쓰는 여러개의 코드들을 패키징해서 재활용.
+      함수를 먼저 정의한 이후 호출가능
+      함수 정의시 이름을 안붙인 함수는 익명함수, 이름을 붙인 함수는 기명함수
+
+    매개변수(patameter), 인수(argument)
+      매개변수 - 외부의 같은 함수 내부로 전달하기위한 통로명
+      인수 - 함수의 매개변수를 통해서 전달되는 값 자체
+
+    반환값 (return)
+      함수 안에서 만들어지는 값을 함수외부로 물리적으로 내보냄
+      함수코드블록안에서 만들어진 값은 외부에서 접근 불가(지역스코프)
+      
+    반환값이 필요한 이유
+      함수내부에서 만들어진 값이 1회성으로 소비되는것이 아닌 
+      추후 다른 형태로 재사용 돼야할때 함수 외부로 값을 내보냄
+
+    return의 다른 쓰임
+      함수내부에서 return문을 만나면 그 즉시 함수실행 종료
+      함수내부로직에서 에러가 발생될만한 상황이면 불필요하게 다음 코드들을 실행하지 않고
+      해당 함수를 강제 종료해야될때
+
+    true,false는아니지만 ture,false로 인지되는 값들
+      ture->
+      빈문자가 아닌문자값
+      0이 아닌 숫자값
+
+      false
+      빈문자,
+      숫자0, 
+      undefind,
+      null
+    */
+
+
+    //함수의 정의 (name이라는 매개변수가 연결되어 있는 함수)
+    function inform(name) {
+      console.log(name + '님 안녕하쇼');
+    }
+    //함수호출 (inforom함수 호출시 '홍길동'이라는 인수 전달)
+    inform('홍길동');
+
+
+
+    //--------------------------------------------------------------
+    //이름값 인수로 전달되면 인사말, 이름값 미전달시 경고문(조건문,함수)    인사말/ 이름넣어주세요
+    function int(name) {
+      if (name) {
+        console.log(name + 'ㅎㅇ');
+      }
+      else {
+        console.log('사람 이름을 넣어주세요');
+      }
+
+    }
+    int('김대');
+
+    //----------------------------------------------------------
+    //삼항연산자(is,else문을 3개의 항을 이용해 간소화한 형태)
+    //삼항연산자를 쓰는 경우는 조건식의 ture,false값에 실행할 구문이 한줄의 간단한 구문일때             인사말/이름넣어주세요
+    //리액트 개발에서 jsx라는 가상돔 출력구문안에는 조건문을 삼항연산자만 사용가능
+    // 조건식 ? 조건식이 ture일때 실행할 구문 : 조건식이 false 일때 실행할 구문
+
+    function int2(name) {
+      name ? console.log(name + 'ㅎㅇ') : console.log('사람 이름을 넣어주세요');
+    }
+    int2('김대');
+
+
+    //----------------------------------------------
+    //인수값이 있을때에만 실행되는 함수 작성시   ///인사말만
+    function test(name) {
+      if (name) console.log(name + 'ㅎㅇ');
+    }
+    test('dd');
+
+    function test2(name) {
+
+      name && console.log(name + 'ㅎㅇ');
+    }
+
+    test2('흑흑');
+
+    //-------------------------------
+
+
+
+
+
+    //-------------------------------------------------------------
+    //엄청로직이 무거운 함수
+    function heavywork(data) {
+      /*
+      if (data !== undefined) {
+        console.log(data);
+        console.log(data);
+        console.log(data);
+      }
+      */
+
+
+      if (data === undefined) return;
+      console.log(data);
+      console.log(data);
+      console.log(data);
+    }
+    heavywork(3);
+
+
+    //-----------------------
+
+    function returnplus(num1, num2) {
+      const result = num1 + num2;
+      return result;
+    }
+    //리턴값이 있는 함수 호출
+    console.log(returnplus(2, 3));
+
+
+    //---2,3을 더한값과 4,5를 더한값을 다시 더해주세요 .
+    const result1 = returnplus(2, 3);
+    const result2 = returnplus(4, 5);
+    console.log(result1 + result2);
+    console.log(returnplus(2, 3) + returnplus(4, 5));
+
+
+    function plus(num1, num2) {
+      const result = num1 + num2;
+      return result;
+    }
+    console.log(plus(1, 2));
+
+    const re1 = plus(2, 3);
+    const re2 = plus(3, 4);
+    console.log(re1 + re2);
+
+
+    //2개의 숫자를 파라미터를 통해 인수로 전달받아서 두개를 더한값을 콘솔로 출력하는함수
+
+    function plus(num1, num2) {
+
+      const result = num1 + num2;
+      console.log(result);
+    }
+    plus(1, 2);
+
+
+    //-------------------------------------------아래게 편함
+
+    function p(num3, num4) {
+
+      console.log(num3 + num4);
+    }
+    p(3, 4);
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>
